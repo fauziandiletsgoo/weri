@@ -1,2 +1,4 @@
-add narrative
-add photo
+tambahkan narasi
+tambahkan foto
+pastikan fotonya dalam format webp
+
