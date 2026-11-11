@@ -45,10 +45,24 @@
     .topbar .container { display:flex; justify-content:space-between; gap:15px; }
     header { position: sticky; top: 0; z-index: 1000; background: color-mix(in srgb, var(--surface) 92%, transparent); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
     .navbar { min-height: var(--header-h); display:flex; align-items:center; justify-content:space-between; gap:24px; }
-    .brand { display:flex; align-items:center; gap:12px; min-width: 220px; }
-    .brand-mark { width:45px; height:45px; border-radius:14px; background:var(--navy); color:var(--gold); display:grid; place-items:center; font-family:Manrope; font-weight:800; font-size:1.1rem; border:1px solid rgba(216,182,106,.55); }
-    .brand-name { font:800 .91rem/1.25 Manrope,sans-serif; color:var(--text); }
-    .brand-name small { display:block; color:var(--muted); font:600 .67rem "DM Sans",sans-serif; letter-spacing:.08em; text-transform:uppercase; margin-top:4px; }
+    .brand {
+        display:flex;
+        align-items:center;
+        gap:12px;
+        min-width:220px;
+      }
+      
+      .brand-logo {
+        width:48px;
+        height:48px;
+        object-fit:contain;
+        flex-shrink:0;
+      }
+      
+      .brand-name {
+        font:800 .91rem/1.25 Manrope,sans-serif;
+        color:var(--text);
+      }
     .nav-links { display:flex; align-items:center; gap:23px; }
     .nav-links a { color:var(--muted); font-size:.85rem; font-weight:700; transition:.2s; }
     .nav-links a:hover,.nav-links a.active { color:var(--gold); }
@@ -173,7 +187,10 @@
       .topbar .container span:last-child { display:none; }
       .navbar { gap:10px; }
       .brand { min-width:0; }
-      .brand-mark { width:40px; height:40px; }
+      .brand-logo {
+        width:40px;
+        height:40px;
+      }
       .brand-name { font-size:.78rem; }
       .brand-name small { font-size:.59rem; }
       .menu-toggle { display:grid; }
@@ -360,7 +377,16 @@
   <footer>
     <div class="container">
       <div class="footer-main">
-        <div><div class="footer-brand"><div class="brand-mark">KT</div><div class="brand-name">KARANG TARUNA<small>KAMPUNG WERI</small></div></div><p class="footer-copy">Dari Pemuda, Untuk Masa Depan Kampung. Bersama membangun generasi muda yang peduli, kreatif, dan berdaya.</p></div>
+        <div class="footer-brand">
+  <img src="assets/images/logo.avif"
+       alt="Logo Karang Taruna Kampung Weri"
+       class="brand-logo">
+  <div class="brand-name">
+    KARANG TARUNA
+    <small>KAMPUNG WERI</small>
+  </div>
+</div>
+        <p class="footer-copy">Dari Pemuda, Untuk Masa Depan Kampung. Bersama membangun generasi muda yang peduli, kreatif, dan berdaya.</p></div>
         <div class="footer-links"><a href="#tentang">Tentang</a><a href="#kepengurusan">Kepengurusan</a><a href="#program">Program Kerja</a><a href="#galeri">Galeri</a><a href="#kontak">Kontak</a></div>
       </div>
       <div class="footer-bottom"><span>© <span id="year"></span> Karang Taruna Kampung Weri. Hak cipta dilindungi.</span><span>Kampung Weri · Fakfak Timur · Papua Barat</span></div>
