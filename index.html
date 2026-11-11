@@ -1,1 +1,498 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101d3a">
+  <meta name="description" content="Website resmi Karang Taruna Kampung Weri, Distrik Fakfak Timur, Kabupaten Fakfak, Papua Barat.">
+  <title>Karang Taruna Kampung Weri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #101d3a; --navy-2: #17294e; --gold: #d8b66a;
+      --bg: #f5f7fb; --surface: #fff; --surface-2: #edf1f7;
+      --text: #18243b; --muted: #66738a; --line: #e1e6ef;
+      --shadow: 0 18px 50px rgba(16,29,58,.10);
+      --radius: 20px; --header-h: 76px;
+    }
+    [data-theme="dark"] {
+      --bg: #0b1220; --surface: #111c30; --surface-2: #18253b;
+      --text: #edf2fb; --muted: #a4b0c4; --line: #26344c;
+      --shadow: 0 18px 50px rgba(0,0,0,.25);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+    body { margin: 0; font-family: "DM Sans", sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; transition: background .25s,color .25s; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .container { width: min(1160px, calc(100% - 40px)); margin-inline: auto; }
+    .section { padding: 92px 0; }
+    .section-head { max-width: 680px; margin-bottom: 38px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: #b28b3e; font-size: .76rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    .eyebrow:before { content:""; width: 24px; height: 2px; background: var(--gold); }
+    h1,h2,h3,h4 { font-family: Manrope, sans-serif; line-height: 1.2; margin: 0; letter-spacing: -.035em; }
+    h2 { font-size: clamp(2rem,4vw,2.8rem); margin-top: 12px; }
+    .section-head p { color: var(--muted); margin: 14px 0 0; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; border: 1px solid transparent; border-radius: 999px; padding: 12px 19px; font-weight: 700; cursor: pointer; transition: .2s ease; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--gold); color: #17213a; }
+    .btn-outline { border-color: rgba(255,255,255,.55); color: white; background: rgba(255,255,255,.06); }
+    .btn-dark { background: var(--navy); color: white; }
+    .topbar { background: #0b1429; color: #d8e0ef; font-size: .78rem; padding: 7px 0; }
+    .topbar .container { display:flex; justify-content:space-between; gap:15px; }
+    header { position: sticky; top: 0; z-index: 1000; background: color-mix(in srgb, var(--surface) 92%, transparent); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+    .navbar { min-height: var(--header-h); display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .brand { display:flex; align-items:center; gap:12px; min-width: 220px; }
+    .brand-mark { width:45px; height:45px; border-radius:14px; background:var(--navy); color:var(--gold); display:grid; place-items:center; font-family:Manrope; font-weight:800; font-size:1.1rem; border:1px solid rgba(216,182,106,.55); }
+    .brand-name { font:800 .91rem/1.25 Manrope,sans-serif; color:var(--text); }
+    .brand-name small { display:block; color:var(--muted); font:600 .67rem "DM Sans",sans-serif; letter-spacing:.08em; text-transform:uppercase; margin-top:4px; }
+    .nav-links { display:flex; align-items:center; gap:23px; }
+    .nav-links a { color:var(--muted); font-size:.85rem; font-weight:700; transition:.2s; }
+    .nav-links a:hover,.nav-links a.active { color:var(--gold); }
+    .nav-actions { display:flex; align-items:center; gap:9px; }
+    .icon-btn,.menu-toggle { width:40px; height:40px; border:1px solid var(--line); border-radius:50%; background:var(--surface); color:var(--text); display:grid; place-items:center; cursor:pointer; }
+    .menu-toggle { display:none; font-size:1.2rem; }
+    .hero { min-height: 650px; position:relative; display:flex; align-items:center; color:white; overflow:hidden; background:#111d38; }
+    .hero:before { content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(7,16,35,.91) 0%,rgba(7,16,35,.72) 48%,rgba(7,16,35,.25) 100%),url("https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=2000&q=80") center/cover; transform:scale(1.02); }
+    .hero:after { content:""; position:absolute; inset:auto 0 0; height:120px; background:linear-gradient(transparent,var(--bg)); }
+    .hero-content { position:relative; z-index:1; max-width:760px; padding:90px 0 120px; }
+    .hero-tag { display:inline-flex; align-items:center; gap:10px; color:#f0dba9; border:1px solid rgba(240,219,169,.35); background:rgba(255,255,255,.08); border-radius:999px; padding:8px 14px; font-size:.77rem; font-weight:700; }
+    .hero h1 { font-size:clamp(2.7rem,6vw,5.3rem); margin:24px 0 16px; max-width:800px; }
+    .hero h1 span { color:var(--gold); }
+    .hero p { color:#dce4f2; max-width:590px; font-size:1.05rem; margin:0 0 28px; }
+    .hero-buttons { display:flex; flex-wrap:wrap; gap:12px; }
+    .hero-meta { margin-top:45px; display:flex; flex-wrap:wrap; gap:24px; color:#d8e0ef; font-size:.82rem; }
+    .hero-meta span { display:flex; align-items:center; gap:8px; }
+    .intro-strip { margin-top:-42px; position:relative; z-index:3; }
+    .intro-card { background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:25px 30px; display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .intro-item { display:flex; gap:14px; align-items:center; }
+    .intro-icon { width:46px; height:46px; border-radius:14px; background:var(--surface-2); color:#b28b3e; display:grid; place-items:center; font-size:1.2rem; flex:none; }
+    .intro-item small { display:block; color:var(--muted); font-size:.72rem; }
+    .intro-item strong { font:700 .92rem Manrope,sans-serif; }
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:55px; align-items:center; }
+    .about-photo { position:relative; }
+    .about-photo img { width:100%; height:440px; object-fit:cover; border-radius:24px; }
+    .photo-note { position:absolute; bottom:20px; left:20px; background:var(--surface); color:var(--text); padding:13px 17px; border-radius:14px; box-shadow:var(--shadow); font-size:.8rem; font-weight:700; }
+    .about-copy p { color:var(--muted); }
+    .fact-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:25px; }
+    .fact { padding:15px; border:1px solid var(--line); border-radius:14px; background:var(--surface); }
+    .fact small { color:var(--muted); display:block; font-size:.72rem; }
+    .fact strong { font-size:.9rem; }
+    .vision-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:24px; }
+    .vision-card { background:var(--navy); color:white; padding:25px; border-radius:18px; }
+    .vision-card h3 { color:var(--gold); font-size:1.2rem; margin-bottom:12px; }
+    .vision-card p,.vision-card li { color:#d6deeb; font-size:.88rem; }
+    .vision-card ul { padding-left:18px; margin-bottom:0; }
+    .org-section { background:var(--surface); border-block:1px solid var(--line); }
+    .org-toolbar { display:flex; justify-content:space-between; align-items:center; gap:15px; flex-wrap:wrap; margin-bottom:24px; }
+    .org-toolbar p { color:var(--muted); margin:0; font-size:.86rem; }
+    .org-tools { display:flex; gap:9px; }
+    .org-canvas { overflow-x:auto; padding:12px 8px 28px; scrollbar-color:var(--gold) var(--surface-2); }
+    .org-tree { min-width:900px; display:flex; flex-direction:column; align-items:center; }
+    .org-row { display:flex; justify-content:center; align-items:stretch; gap:16px; position:relative; }
+    .org-node { width:160px; background:var(--bg); border:1px solid var(--line); border-radius:15px; padding:13px 10px; text-align:center; box-shadow:0 7px 20px rgba(16,29,58,.05); position:relative; }
+    .org-node.leader { background:var(--navy); border-color:var(--navy); color:white; }
+    .org-node .role { color:#b28b3e; font-size:.65rem; text-transform:uppercase; letter-spacing:.08em; font-weight:800; display:block; margin:6px 0 3px; }
+    .org-node strong { display:block; font:700 .78rem/1.35 Manrope,sans-serif; }
+    .org-node small { display:block; color:var(--muted); font-size:.68rem; margin-top:4px; }
+    .org-node.leader small { color:#c5d0e2; }
+    .avatar { width:62px; height:62px; border-radius:50%; object-fit:cover; margin:0 auto; border:3px solid var(--surface); background:var(--surface-2); }
+    .leader .avatar { border-color:rgba(216,182,106,.65); }
+    .connector { width:2px; height:25px; background:var(--gold); margin:0 auto; }
+    .connector-wide { width:78%; height:2px; background:var(--gold); margin:0 auto; }
+    .org-level-label { font-size:.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:.12em; font-weight:800; margin:22px 0 10px; }
+    .field-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; width:100%; }
+    .field-card { background:var(--bg); border:1px solid var(--line); border-radius:15px; padding:15px; text-align:center; }
+    .field-card h4 { font-size:.78rem; min-height:38px; margin:8px 0 12px; }
+    .field-lead { display:flex; justify-content:center; gap:8px; margin-bottom:12px; }
+    .mini-person { width:58px; }
+    .mini-person img { width:43px; height:43px; border-radius:50%; object-fit:cover; margin:auto; }
+    .mini-person b { display:block; font-size:.62rem; line-height:1.25; margin-top:5px; }
+    .mini-person small { display:block; color:var(--muted); font-size:.57rem; }
+    .members { border-top:1px solid var(--line); padding-top:10px; color:var(--muted); font-size:.67rem; }
+    .org-hint { color:var(--muted); font-size:.76rem; text-align:center; margin:12px 0 0; }
+    .program-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .program-card { background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:25px; transition:.25s; }
+    .program-card:hover { transform:translateY(-5px); box-shadow:var(--shadow); }
+    .program-icon { width:48px; height:48px; border-radius:15px; background:var(--surface-2); color:#b28b3e; display:grid; place-items:center; font-size:1.25rem; margin-bottom:20px; }
+    .program-card h3 { font-size:1.08rem; margin-bottom:9px; }
+    .program-card p { color:var(--muted); font-size:.86rem; margin:0; }
+    .news-section { background:var(--navy); color:white; overflow:hidden; }
+    .news-section .section-head p { color:#b9c5d8; }
+    .news-section .eyebrow { color:var(--gold); }
+    .news-head { display:flex; justify-content:space-between; align-items:end; gap:20px; }
+    .news-track { display:flex; gap:18px; overflow-x:auto; padding:5px 2px 22px; scroll-snap-type:x mandatory; scrollbar-width:thin; scrollbar-color:var(--gold) rgba(255,255,255,.15); }
+    .news-card { flex:0 0 310px; background:#1a2b4c; border:1px solid rgba(255,255,255,.1); border-radius:18px; overflow:hidden; scroll-snap-align:start; }
+    .news-card img { width:100%; height:175px; object-fit:cover; }
+    .news-content { padding:19px; }
+    .news-date { color:var(--gold); font-size:.7rem; font-weight:700; }
+    .news-content h3 { font-size:1rem; margin:8px 0; }
+    .news-content p { color:#bdc9dc; font-size:.81rem; margin:0; }
+    .gallery-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:13px; }
+    .gallery-item { position:relative; overflow:hidden; border-radius:15px; cursor:pointer; background:var(--surface-2); min-height:190px; }
+    .gallery-item:nth-child(1),.gallery-item:nth-child(6) { grid-row:span 2; }
+    .gallery-item img { width:100%; height:100%; min-height:190px; object-fit:cover; transition:transform .45s; }
+    .gallery-item:hover img { transform:scale(1.06); }
+    .gallery-item span { position:absolute; left:12px; bottom:12px; color:white; background:rgba(8,18,38,.72); backdrop-filter:blur(8px); border-radius:999px; padding:6px 11px; font-size:.7rem; }
+    .contact-grid { display:grid; grid-template-columns:.9fr 1.1fr; gap:25px; }
+    .contact-panel { background:var(--navy); color:white; border-radius:20px; padding:30px; }
+    .contact-panel h3 { font-size:1.4rem; margin-bottom:12px; }
+    .contact-panel p { color:#c6d0e1; font-size:.88rem; }
+    .contact-line { display:flex; gap:12px; align-items:center; padding:13px 0; border-top:1px solid rgba(255,255,255,.13); font-size:.86rem; }
+    .contact-line b { color:var(--gold); }
+    .contact-side { background:var(--surface); border:1px solid var(--line); border-radius:20px; padding:30px; }
+    .contact-side h3 { margin-bottom:12px; }
+    .contact-side p { color:var(--muted); font-size:.9rem; }
+    footer { background:#091329; color:#d5deed; padding:35px 0 20px; }
+    .footer-main { display:flex; justify-content:space-between; gap:25px; align-items:flex-start; padding-bottom:25px; }
+    .footer-brand { display:flex; gap:13px; align-items:center; }
+    .footer-brand .brand-name { color:white; }
+    .footer-copy { color:#9eacc2; font-size:.78rem; max-width:420px; margin-top:15px; }
+    .footer-links { display:flex; flex-wrap:wrap; gap:16px; font-size:.8rem; color:#c2ccdc; }
+    .footer-bottom { border-top:1px solid rgba(255,255,255,.12); padding-top:17px; display:flex; justify-content:space-between; gap:12px; color:#9eacc2; font-size:.72rem; }
+    .lightbox { position:fixed; inset:0; z-index:2000; background:rgba(4,10,23,.92); display:none; align-items:center; justify-content:center; padding:25px; }
+    .lightbox.open { display:flex; }
+    .lightbox img { max-width:min(100%,1000px); max-height:82vh; object-fit:contain; border-radius:12px; }
+    .lightbox button { position:absolute; top:22px; right:25px; background:white; color:#111; border:0; border-radius:50%; width:42px; height:42px; font-size:1.4rem; cursor:pointer; }
+    .reveal { opacity:0; transform:translateY(24px); transition:opacity .7s ease,transform .7s ease; }
+    .reveal.visible { opacity:1; transform:none; }
+    .toast { position:fixed; bottom:20px; left:50%; transform:translate(-50%,20px); opacity:0; pointer-events:none; z-index:3000; background:var(--navy); color:white; padding:10px 16px; border-radius:999px; font-size:.8rem; transition:.25s; }
+    .toast.show { opacity:1; transform:translate(-50%,0); }
+    @media (max-width: 980px) {
+      .nav-links { gap:13px; } .nav-links a { font-size:.78rem; }
+      .brand { min-width:190px; } .program-grid { grid-template-columns:repeat(2,1fr); }
+      .field-grid { grid-template-columns:repeat(4,1fr); }
+    }
+    @media (max-width: 760px) {
+      :root { --header-h:68px; }
+      .container { width:min(100% - 30px,600px); }
+      .topbar .container { justify-content:center; text-align:center; }
+      .topbar .container span:last-child { display:none; }
+      .navbar { gap:10px; }
+      .brand { min-width:0; }
+      .brand-mark { width:40px; height:40px; }
+      .brand-name { font-size:.78rem; }
+      .brand-name small { font-size:.59rem; }
+      .menu-toggle { display:grid; }
+      .nav-links { position:absolute; left:15px; right:15px; top:calc(100% + 8px); background:var(--surface); border:1px solid var(--line); border-radius:18px; box-shadow:var(--shadow); padding:10px; display:flex; flex-direction:column; align-items:stretch; gap:0; opacity:0; visibility:hidden; transform:translateY(-10px) scale(.98); transform-origin:top; transition:.25s ease; }
+      .nav-links.open { opacity:1; visibility:visible; transform:translateY(0) scale(1); }
+      .nav-links a { padding:12px 13px; border-radius:10px; font-size:.9rem; }
+      .nav-links a:hover { background:var(--surface-2); }
+      .nav-actions { margin-left:auto; }
+      .hero { min-height:590px; }
+      .hero:before { background:linear-gradient(90deg,rgba(7,16,35,.9),rgba(7,16,35,.58)),url("https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1000&q=75") center/cover; }
+      .hero-content { padding:80px 0 115px; }
+      .hero h1 { font-size:clamp(2.6rem,12vw,4rem); }
+      .hero p { font-size:.95rem; }
+      .hero-meta { gap:12px 18px; margin-top:32px; }
+      .intro-strip { margin-top:-35px; }
+      .intro-card { grid-template-columns:1fr; gap:15px; padding:20px; }
+      .section { padding:70px 0; }
+      .about-grid,.contact-grid { grid-template-columns:1fr; gap:28px; }
+      .about-photo img { height:300px; }
+      .vision-grid { grid-template-columns:1fr; }
+      .program-grid { grid-template-columns:1fr 1fr; gap:12px; }
+      .program-card { padding:18px; }
+      .news-head { align-items:start; flex-direction:column; }
+      .news-card { flex-basis:275px; }
+      .gallery-grid { grid-template-columns:repeat(2,1fr); gap:9px; }
+      .gallery-item { min-height:145px; }
+      .gallery-item img { min-height:145px; }
+      .gallery-item:nth-child(1),.gallery-item:nth-child(6) { grid-row:span 1; }
+      .footer-main { flex-direction:column; }
+      .footer-bottom { flex-direction:column; }
+      .org-toolbar { align-items:flex-start; }
+      .org-hint { text-align:left; }
+    }
+    @media (max-width: 420px) {
+      .nav-actions { gap:6px; } .icon-btn,.menu-toggle { width:36px;height:36px; }
+      .brand-name { max-width:150px; }
+      .hero-buttons .btn { width:100%; }
+      .fact-grid { grid-template-columns:1fr 1fr; }
+      .program-grid { grid-template-columns:1fr; }
+      .org-tools .btn { padding:9px 12px; font-size:.75rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *,*::before,*::after { scroll-behavior:auto!important; animation-duration:.01ms!important; transition-duration:.01ms!important; }
+      .reveal { opacity:1; transform:none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar"><div class="container"><span>Karang Taruna Kampung Weri</span><span>Distrik Fakfak Timur · Kabupaten Fakfak · Papua Barat</span></div></div>
+  <header>
+    <div class="container navbar">
+      <a class="brand" href="#beranda" aria-label="Beranda Karang Taruna Kampung Weri">
+        <div class="brand-mark">KT</div>
+        <div class="brand-name">KARANG TARUNA<small>KAMPUNG WERI</small></div>
+      </a>
+      <nav class="nav-links" id="navLinks" aria-label="Navigasi utama">
+        <a href="#beranda">Beranda</a><a href="#tentang">Tentang Kami</a><a href="#kepengurusan">Kepengurusan</a><a href="#program">Program Kerja</a><a href="#berita">Berita</a><a href="#galeri">Galeri</a><a href="#kontak">Kontak</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Ubah tema" title="Ubah tema">☾</button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Buka navigasi" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="beranda">
+      <div class="container"><div class="hero-content reveal">
+        <span class="hero-tag">✦ Pemuda Kampung Weri</span>
+        <h1>Dari Pemuda,<br>Untuk <span>Masa Depan</span> Kampung.</h1>
+        <p>Ruang tumbuh, berkarya, dan berkolaborasi bagi generasi muda untuk membangun Kampung Weri yang lebih maju, peduli, dan berdaya.</p>
+        <div class="hero-buttons"><a class="btn btn-primary" href="#tentang">Tentang Kami <span>↗</span></a><a class="btn btn-outline" href="#kepengurusan">Lihat Kepengurusan</a></div>
+        <div class="hero-meta"><span>⌖ Kampung Weri, Fakfak Timur</span><span>◷ Berdiri sejak 2026</span></div>
+      </div></div>
+    </section>
+
+    <div class="container intro-strip"><div class="intro-card reveal">
+      <div class="intro-item"><div class="intro-icon">⌖</div><div><small>Wilayah</small><strong>Kampung Weri, Papua Barat</strong></div></div>
+      <div class="intro-item"><div class="intro-icon">✦</div><div><small>Fokus Gerakan</small><strong>Pemberdayaan Generasi Muda</strong></div></div>
+      <div class="intro-item"><div class="intro-icon">◎</div><div><small>Semangat</small><strong>Bersatu, Berkarya, Berdampak</strong></div></div>
+    </div></div>
+
+    <section class="section" id="tentang">
+      <div class="container about-grid">
+        <div class="about-photo reveal">
+          <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1000&q=80" alt="Ilustrasi lanskap alam Papua">
+          <div class="photo-note">Kampung Weri · Fakfak Timur</div>
+        </div>
+        <div class="about-copy reveal">
+          <span class="eyebrow">Tentang organisasi</span><h2>Tumbuh bersama, membangun kampung.</h2>
+          <p>Karang Taruna Kampung Weri merupakan wadah pengembangan generasi muda yang berorientasi pada kegiatan sosial, pemberdayaan, kreativitas, dan partisipasi dalam pembangunan kampung.</p>
+          <p>Melalui semangat kebersamaan, organisasi ini menjadi ruang bagi pemuda untuk belajar, berinisiatif, dan menghadirkan kegiatan yang bermanfaat bagi masyarakat.</p>
+          <div class="fact-grid">
+            <div class="fact"><small>Nama</small><strong>Karang Taruna Kampung Weri</strong></div>
+            <div class="fact"><small>Lokasi</small><strong>Kampung Weri, Distrik Fakfak Timur, Kabupaten Fakfak</strong></div>
+            <div class="fact"><small>Tahun Berdiri</small><strong>22 Oktober 2026</strong></div>
+            <div class="fact"><small>Status</small><strong>Organisasi kepemudaan kampung</strong></div>
+          </div>
+          <div class="vision-grid">
+            <div class="vision-card"><h3>Visi</h3><p>Terwujudnya generasi muda Kampung Weri yang berdaya, peduli, kreatif, dan berkontribusi bagi kemajuan kampung.</p></div>
+            <div class="vision-card"><h3>Misi</h3><ul><li>Mengembangkan potensi pemuda.</li><li>Mendorong kepedulian sosial.</li><li>Melestarikan budaya dan lingkungan.</li><li>Membangun kolaborasi masyarakat.</li></ul></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section org-section" id="kepengurusan">
+      <div class="container">
+        <div class="section-head reveal"><span class="eyebrow">Struktur organisasi</span><h2>Kenali penggerak Karang Taruna.</h2><p>Susunan kepengurusan ditampilkan secara bertingkat agar hubungan koordinasi mudah dipahami. Seluruh nama dan foto di bawah ini masih berupa data contoh.</p></div>
+        <div class="org-toolbar reveal"><p>Bagan dapat digeser ke samping pada layar kecil.</p><div class="org-tools"><button class="btn btn-dark" id="expandOrg">Perbesar bagan</button><button class="btn btn-dark" id="collapseOrg">Perkecil bagan</button></div></div>
+        <div class="org-canvas" id="orgCanvas">
+          <div class="org-tree">
+            <div class="org-row">
+              <div class="org-node"><img class="avatar" src="https://i.pravatar.cc/120?img=12" alt="Foto dummy pembina"><span class="role">Pembina</span><strong>Bapak Kepala Kampung</strong><small>Kepala Kampung Weri</small></div>
+              <div class="org-node"><img class="avatar" src="https://i.pravatar.cc/120?img=13" alt="Foto dummy penasihat"><span class="role">Penasihat</span><strong>Nama Penasihat I</strong><small>Unsur masyarakat</small></div>
+              <div class="org-node"><img class="avatar" src="https://i.pravatar.cc/120?img=14" alt="Foto dummy penasihat"><span class="role">Penasihat</span><strong>Nama Penasihat II</strong><small>Unsur masyarakat</small></div>
+              <div class="org-node"><img class="avatar" src="https://i.pravatar.cc/120?img=15" alt="Foto dummy penasihat"><span class="role">Penasihat</span><strong>Nama Penasihat III</strong><small>Unsur masyarakat</small></div>
+              <div class="org-node"><img class="avatar" src="https://i.pravatar.cc/120?img=16" alt="Foto dummy penasihat"><span class="role">Penasihat</span><strong>Nama Penasihat IV</strong><small>Unsur masyarakat</small></div>
+            </div>
+            <div class="connector"></div>
+            <div class="org-row">
+              <div class="org-node leader"><img class="avatar" src="https://i.pravatar.cc/120?img=11" alt="Foto dummy ketua"><span class="role">Ketua</span><strong>Irfan Irsan Lahapo</strong></div>
+              <div class="org-node leader"><img class="avatar" src="https://i.pravatar.cc/120?img=18" alt="Foto dummy wakil ketua"><span class="role">Wakil Ketua</span><strong>Darvis Kolatveka</strong></div>
+            </div>
+            <div class="connector"></div>
+            <div class="org-row">
+              <div class="org-node"><img class="avatar" src="https://i.pravatar.cc/120?img=21" alt="Foto dummy sekretaris"><span class="role">Sekretaris</span><strong>Jhon Rasli Kanedi Fuad</strong></div>
+              <div class="org-node"><img class="avatar" src="https://i.pravatar.cc/120?img=22" alt="Foto dummy bendahara"><span class="role">Bendahara</span><strong>Rosmini</strong></div>
+            </div>
+            <div class="connector"></div><div class="org-level-label">Koordinator bidang dan wakil koordinator</div><div class="connector-wide"></div>
+            <div class="field-grid" id="fieldGrid"></div>
+          </div>
+        </div>
+        <p class="org-hint">Tip: pada ponsel, geser bagan ke kiri atau kanan untuk melihat seluruh bidang.</p>
+      </div>
+    </section>
+
+    <section class="section" id="program">
+      <div class="container">
+        <div class="section-head reveal"><span class="eyebrow">Arah gerak</span><h2>Program kerja unggulan.</h2><p>Contoh program yang dapat disesuaikan melalui rapat kerja dan kebutuhan masyarakat Kampung Weri.</p></div>
+        <div class="program-grid">
+          <article class="program-card reveal"><div class="program-icon">♧</div><h3>Weri Bersih</h3><p>Aksi gotong royong, pengelolaan sampah, dan perawatan lingkungan kampung.</p></article>
+          <article class="program-card reveal"><div class="program-icon">✦</div><h3>Pemuda Berkarya</h3><p>Pelatihan keterampilan, pengembangan kreativitas, dan peningkatan kapasitas pemuda.</p></article>
+          <article class="program-card reveal"><div class="program-icon">♡</div><h3>Weri Peduli</h3><p>Kegiatan sosial, kunjungan warga, dan aksi solidaritas untuk masyarakat.</p></article>
+          <article class="program-card reveal"><div class="program-icon">♫</div><h3>Ruang Budaya</h3><p>Pelestarian seni, tradisi, dan potensi budaya lokal Kampung Weri.</p></article>
+          <article class="program-card reveal"><div class="program-icon">↗</div><h3>Wirausaha Muda</h3><p>Inisiatif ekonomi produktif dan pendampingan usaha kecil pemuda.</p></article>
+          <article class="program-card reveal"><div class="program-icon">⚽</div><h3>Olahraga Bersama</h3><p>Aktivitas olahraga dan kompetisi persahabatan untuk mempererat kebersamaan.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section news-section" id="berita">
+      <div class="container">
+        <div class="news-head"><div class="section-head reveal"><span class="eyebrow">Kabar organisasi</span><h2>Berita & cerita kegiatan.</h2><p>Ikuti perkembangan, agenda, dan cerita dari Karang Taruna Kampung Weri.</p></div><a class="btn btn-outline" href="#kontak">Kirim informasi ↗</a></div>
+        <div class="news-track reveal" id="newsTrack"></div>
+      </div>
+    </section>
+
+    <section class="section" id="galeri">
+      <div class="container">
+        <div class="section-head reveal"><span class="eyebrow">Dokumentasi</span><h2>Galeri kegiatan.</h2><p>Potret kebersamaan, kerja nyata, dan perjalanan pemuda Kampung Weri.</p></div>
+        <div class="gallery-grid reveal" id="galleryGrid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="kontak">
+      <div class="container">
+        <div class="section-head reveal"><span class="eyebrow">Hubungi kami</span><h2>Mari terhubung dan berkolaborasi.</h2><p>Terbuka untuk komunikasi, kolaborasi kegiatan, dan partisipasi pemuda maupun masyarakat.</p></div>
+        <div class="contact-grid">
+          <div class="contact-panel reveal"><h3>Karang Taruna Kampung Weri</h3><p>Wadah pemuda untuk tumbuh, berkarya, dan memberikan kontribusi positif bagi kampung.</p>
+            <div class="contact-line"><b>⌖</b><span>Kampung Weri, Distrik Fakfak Timur,<br>Kabupaten Fakfak, Papua Barat</span></div>
+            <div class="contact-line"><b>✉</b><span>karangtarunaweri@example.com</span></div>
+            <div class="contact-line"><b>◎</b><span>@karangtaruna.weri (dummy)</span></div>
+          </div>
+          <div class="contact-side reveal"><h3>Suara dan partisipasi pemuda penting.</h3><p>Punya ide kegiatan, ingin bergabung, atau ingin menjalin kerja sama? Hubungi pengurus melalui kanal komunikasi resmi organisasi.</p><a class="btn btn-dark" href="https://www.instagram.com/" target="_blank" rel="noopener">Kunjungi Instagram ↗</a><p style="font-size:.75rem;margin-top:20px">Catatan: alamat email dan akun media sosial di atas hanya contoh. Ganti dengan kontak resmi sebelum website dipublikasikan.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-main">
+        <div><div class="footer-brand"><div class="brand-mark">KT</div><div class="brand-name">KARANG TARUNA<small>KAMPUNG WERI</small></div></div><p class="footer-copy">Dari Pemuda, Untuk Masa Depan Kampung. Bersama membangun generasi muda yang peduli, kreatif, dan berdaya.</p></div>
+        <div class="footer-links"><a href="#tentang">Tentang</a><a href="#kepengurusan">Kepengurusan</a><a href="#program">Program Kerja</a><a href="#galeri">Galeri</a><a href="#kontak">Kontak</a></div>
+      </div>
+      <div class="footer-bottom"><span>© <span id="year"></span> Karang Taruna Kampung Weri. Hak cipta dilindungi.</span><span>Kampung Weri · Fakfak Timur · Papua Barat</span></div>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Tampilan foto">
+    <button id="lightboxClose" aria-label="Tutup">×</button><img id="lightboxImage" src="" alt="Foto galeri ukuran penuh">
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+
+  <script>
+    // ==========================================================
+    // DATA DUMMY: ubah nama, jabatan, foto, berita, dan galeri di sini.
+    // Foto menggunakan URL eksternal sebagai contoh. Untuk GitHub Pages,
+    // disarankan mengunduh foto sendiri dan menyimpannya di folder assets/.
+    // ==========================================================
+    const fields = [
+      "Bidang Organisasi dan Kaderisasi",
+      "Bidang Sosial dan Kemasyarakatan",
+      "Bidang Seni dan Budaya",
+      "Bidang Ekonomi dan Kewirausahaan",
+      "Bidang Humas dan Komunikasi",
+      "Bidang Lingkungan Hidup",
+      "Bidang Olahraga",
+      "Bidang VIII (lengkapi nama)"
+    ];
+    const fieldGrid = document.getElementById("fieldGrid");
+    fieldGrid.innerHTML = fields.map((name, i) => `
+      <article class="field-card">
+        <h4>${name}</h4>
+        <div class="field-lead">
+          <div class="mini-person"><img src="https://i.pravatar.cc/100?img=${30+i}" alt="Foto koordinator bidang ${i+1}"><b>Nama Koordinator</b><small>Koordinator</small></div>
+          <div class="mini-person"><img src="https://i.pravatar.cc/100?img=${40+i}" alt="Foto wakil koordinator bidang ${i+1}"><b>Nama Wakil</b><small>Wakil</small></div>
+        </div>
+        <div class="members">Anggota bidang<br><strong>Nama Anggota 1 · 2 · 3</strong></div>
+      </article>`).join("");
+
+    const news = [
+      {date:"12 November 2026", title:"Musyawarah Pembentukan Pengurus", desc:"Pemuda Kampung Weri bersepakat membangun wadah organisasi dan merumuskan kepengurusan.", img:"https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=700&q=75"},
+      {date:"20 November 2026", title:"Rencana Aksi Bersih Kampung", desc:"Pengurus menyiapkan kegiatan gotong royong sebagai langkah awal gerakan peduli lingkungan.", img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=700&q=75"},
+      {date:"02 Desember 2026", title:"Pertemuan dan Konsolidasi Pemuda", desc:"Ruang diskusi untuk menyerap aspirasi serta menyusun agenda kegiatan pemuda.", img:"https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=700&q=75"},
+      {date:"10 Desember 2026", title:"Persiapan Program Kerja", desc:"Pemetaan potensi kampung dan penyusunan prioritas program organisasi.", img:"https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=700&q=75"}
+    ];
+    document.getElementById("newsTrack").innerHTML = news.map(n => `
+      <article class="news-card"><img src="${n.img}" alt="${n.title}" loading="lazy"><div class="news-content"><span class="news-date">${n.date}</span><h3>${n.title}</h3><p>${n.desc}</p></div></article>`).join("");
+
+    const gallery = [
+      ["Musyawarah pemuda","https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=900&q=80"],
+      ["Kegiatan sosial","https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=900&q=80"],
+      ["Gotong royong","https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=900&q=80"],
+      ["Kebersamaan pemuda","https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=80"],
+      ["Alam dan lingkungan","https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=900&q=80"],
+      ["Pertemuan organisasi","https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=900&q=80"],
+      ["Aktivitas masyarakat","https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=900&q=80"],
+      ["Pemandangan kampung","https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=80"]
+    ];
+    const galleryGrid = document.getElementById("galleryGrid");
+    galleryGrid.innerHTML = gallery.map(([label,src]) => `
+      <button class="gallery-item" type="button" data-src="${src}" aria-label="Perbesar foto: ${label}">
+        <img src="${src}" alt="${label}" loading="lazy"><span>${label}</span>
+      </button>`).join("");
+
+    // Mobile navigation
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    function closeMenu(){ navLinks.classList.remove("open"); menuToggle.setAttribute("aria-expanded","false"); menuToggle.textContent="☰"; }
+    menuToggle.addEventListener("click", () => {
+      const open = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(open));
+      menuToggle.textContent = open ? "×" : "☰";
+    });
+    navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", closeMenu));
+    document.addEventListener("click", e => { if (!e.target.closest(".navbar")) closeMenu(); });
+
+    // Dark / light theme, with local preference
+    const themeToggle = document.getElementById("themeToggle");
+    const savedTheme = localStorage.getItem("weri-theme");
+    if (savedTheme) document.documentElement.setAttribute("data-theme", savedTheme);
+    function updateThemeIcon(){ themeToggle.textContent = document.documentElement.getAttribute("data-theme")==="dark" ? "☀" : "☾"; }
+    updateThemeIcon();
+    themeToggle.addEventListener("click", () => {
+      const next = document.documentElement.getAttribute("data-theme")==="dark" ? "light" : "dark";
+      if(next==="dark") document.documentElement.setAttribute("data-theme","dark");
+      else document.documentElement.removeAttribute("data-theme");
+      localStorage.setItem("weri-theme",next); updateThemeIcon();
+    });
+
+    // Scroll reveal
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add("visible"); revealObserver.unobserve(entry.target); } });
+    }, {threshold:.12});
+    document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+
+    // Active navigation state
+    const sections = document.querySelectorAll("main section[id]");
+    const sectionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          navLinks.querySelectorAll("a").forEach(a => a.classList.toggle("active", a.getAttribute("href")==="#"+entry.target.id));
+        }
+      });
+    }, {rootMargin:"-35% 0px -55% 0px"});
+    sections.forEach(section => sectionObserver.observe(section));
+
+    // Gallery lightbox
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    galleryGrid.addEventListener("click", e => {
+      const item = e.target.closest(".gallery-item");
+      if(!item) return;
+      lightboxImage.src = item.dataset.src; lightbox.classList.add("open"); document.body.style.overflow="hidden";
+    });
+    function closeLightbox(){ lightbox.classList.remove("open"); document.body.style.overflow=""; lightboxImage.src=""; }
+    document.getElementById("lightboxClose").addEventListener("click",closeLightbox);
+    lightbox.addEventListener("click",e=>{if(e.target===lightbox)closeLightbox();});
+    document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeLightbox();closeMenu();}});
+
+    // Org chart scaling controls (desktop/tablet); mobile can also scroll horizontally.
+    let orgScale = 1;
+    const orgTree = document.querySelector(".org-tree");
+    function setOrgScale(value){
+      orgScale = Math.max(.72,Math.min(1.12,value));
+      orgTree.style.zoom = orgScale;
+      showToast("Ukuran bagan: " + Math.round(orgScale*100) + "%");
+    }
+    document.getElementById("expandOrg").addEventListener("click",()=>setOrgScale(orgScale+.08));
+    document.getElementById("collapseOrg").addEventListener("click",()=>setOrgScale(orgScale-.08));
+
+    function showToast(message){
+      const toast=document.getElementById("toast"); toast.textContent=message; toast.classList.add("show");
+      clearTimeout(window.toastTimer); window.toastTimer=setTimeout(()=>toast.classList.remove("show"),1600);
+    }
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
 
